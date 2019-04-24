@@ -2,10 +2,14 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
         <title>DJ Fart in the Club</title>
         <script src="//connect.soundcloud.com/sdk.js"></script>
         <script type="text/javascript" src="https://w.soundcloud.com/player/api.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/ra_api.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/sc.js') }}"></script>
+        
+
         <!--<script src="../js/sc.js"></script>-->
         <style>
             .tour-dates:after {
@@ -35,7 +39,7 @@
     <body>
         <header>
             <div class="container">
-            <h1>This is a dj portfolio website</h1>
+            <h1>DJ Fart in the Club</h1>
             <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/87169738&color=%23685e44&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
             <strong><nav>
             <ul class="menu">
@@ -46,95 +50,19 @@
             </nav></strong>
             </div>
         </header>
-        <div class="container">
-            {% block container %}
+        <div class="comments">
+            {% block comments %}
             {% endblock %}
           </div>
-          {% for c in comments_list %}
-            <div class="row">
-                {{ c }}
-            </div>
-          {% endfor %}
           <div class="tour_dates">
           {% block tour_dates %}
           {% endblock %}
-         </div>
-          <script>
-            
-            var request = new XMLHttpRequest();
-            request.open("GET",'https://www.residentadvisor.net/api/events.asmx/GetEvents?AccessKey=ed0e7f28-e01b-4dfc-b0e1-47b79a49ecec&UserID=360584&DJID=77328&Option=1&VenueID=&CountryID=&AreaID=&PromoterID=&Year=', true);
-            
-            request.responseType = 'document';
-
-            request.overrideMimeType('text/xml');
-
-            request.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200){
-                    myFunction(this);
-                    console.log(request.response, request.responseXML);
-                }
-            };
-
-            function myFunction(xml){
-                var venue, date, area, title, i, date_c, venue_c, area_c, title_c, xmlDoc;
-                xmlDoc = xml.responseXML;
-                date_c = "";
-                venue_c = "" ;
-                area_c = "";
-                title_c = "";
-                date = xmlDoc.getElementsByTagName("eventdate")
-                for (i=0; i<date.length; i++){
-                    date_c += date[i].childNodes[0].nodeValue.substring(0,10)+ "<br>";
-                }
-                
-                title = xmlDoc.getElementsByTagName("title")
-                for (i=0; i<title.length; i++){
-                    title_c += title[i].childNodes[0].nodeValue.substring(0,50)+ "<br>";
-                }
-                venue = xmlDoc.getElementsByTagName("venue")
-                for (i = 0; i < venue.length; i++){
-                    venue_c += venue[i].childNodes[0].nodeValue + "<br>";
-                }
-                area = xmlDoc.getElementsByTagName("areaname")
-                for (i=0; i<area.length; i++){
-                    area_c += area[i].childNodes[0].nodeValue.substring(0,10)+ "<br>";
-                }
-
-                document.getElementById("date").innerHTML = date_c;
-                document.getElementById("title").innerHTML = title_c;
-                document.getElementById("venue").innerHTML = venue_c;
-                document.getElementById("area").innerHTML = area_c;
-
-                
-                
-            }
-            
-            request.send();
-            
-
-            /**request.onload = function (e){
-                if (request.readyState === 4){
-                    if (request.status === 200){
-                        console.log(request.responseText);
-                        var response = JSON.parse(request.responseText);
-                        console.log()
-                    }else {
-                        console.log(request.statusText);
-                    }
-
-                    }
-                }; 
-            request.onerror = function (e) {
-                console.error(request.statusText);
-            };
-            request.send(null);*/
-
-            //on http if i make api calls i get CORS, get blocked 
-
-            // 'https://www.residentadvisor.net/api/events.asmx/GetEvents?AccessKey=ed0e7f28-e01b-4dfc-b0e1-47b79a49ecec&UserID=360584&DJID=77328&Option=1&VenueID=&CountryID=&AreaID=&PromoterID=&Year='
-            </script>
-          
-
+         </div> 
           <input value="Play Sound?" type="button" onclick="player.play()">    
     </body>
+    <script>
+        console.log(SC.get('/users/87169738/tracks'));
+    SC.stream('/tracks/556357263');
+          </script>
+    
 </html>
