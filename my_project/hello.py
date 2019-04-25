@@ -1,5 +1,4 @@
 from flask import Flask , redirect, render_template, request, url_for
-
 #from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
@@ -9,7 +8,7 @@ app.config["DEBUG"] = True
 comments_list = []
 
 
-@app.route('/', methods=["GET", "POST"])
+@app.route('/', methods=["GET"])
 def index():
     return render_template("index.html", comments_list=comments_list)
 
@@ -25,11 +24,11 @@ def comments():
     #request this page again, using GET 
     return redirect(url_for("comments"))
 
-@app.route('/tour-dates/', methods=["GET", "POST"])
+@app.route('/tour-dates/', methods=["GET"])
 def tour_dates():
     return render_template("tour-dates.html",comments_list=comments_list)
 
-@app.route('/contact/', methods=["GET", "POST"])
+@app.route('/contact/', methods=["GET"])
 def contact():
     return render_template("contact.html",comments_list=comments_list)
 
