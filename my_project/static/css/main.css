@@ -89,3 +89,105 @@ a{
 p{
     font-size: 14px;
 }
+h1{
+    padding-left: 20px;
+}
+.floating {  
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+    color:hotpink;
+    padding: 5px;
+    
+}
+
+@keyframes floating {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 15px); }
+    to   { transform: translate(0, -0px); }    
+}
+
+
+#comment1{
+    position: absolute;
+    left: 100px;
+    top: 300px;
+    font-size: 11px;
+}
+
+#comment2{
+    position : absolute;
+    left : 1200px;
+    top : 70px;
+    font-size: 12px;
+}
+    
+    
+#comment3{
+    position :absolute;
+    left :350px;
+    top : 50px;
+    font-size: 10px;
+}
+    
+    
+    #comment4{
+    position :absolute;
+    left :400px;
+    top : 400px;
+    font-size: 20px;
+    }
+    
+    #comment5{
+    position :absolute;
+    left :500px;
+    top :200px;
+    font-size: 11px;
+
+    }
+
+    #comment6{
+        position :absolute;
+        left :800px;
+        top :350px;
+        font-size: 18px;
+    
+        }
+    #comment7{
+    position :absolute;
+    left :1000px;
+    top :700px;
+    font-size: 10px;
+
+    }
+    #comment8{
+        position :absolute;
+        left :800px;
+        top :700px;
+        font-size: 15px;
+    
+        }
+
+    #comment9{
+    position :absolute;
+    left :900px;
+    top :500px;
+    font-size: 11px;
+
+    }
+
+    #comment10{
+        position :absolute;
+        left :300px;
+        top :800px;
+        font-size: 13px;
+        }
+
+
+    #past-gigs{
+        position: relative;
+        bottom: 0;
+    }

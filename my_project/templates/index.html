@@ -4,9 +4,10 @@
         <meta charset="utf-8">
 
         <title>DJ Fart in the Club</title>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/upcoming-gigs.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/sc.js') }}"></script>
+        
+       <!--<script type="text/javascript" src="{{ url_for('static', filename='js/sc.js') }}"></script> -->
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/upcoming-gigs.js') }}"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      <!--   <script>
             $(document).ready(function(){
@@ -31,8 +32,19 @@
         </script> -->
     </head>
     <body>
+            <div class="floating commentDisplay" id="comment1">{{ comments_list | random }}</div> 
+            <div class="floating commentDisplay" id="comment2">{{ comments_list | random }}</div>
+            <div class="floating commentDisplay"id="comment3">{{ comments_list | random }}</div>
+            <div class="floating commentDisplay" id="comment4">{{ comments_list | random }}</div>
+            <div class="floating commentDisplay" id="comment5">{{ comments_list | random }}</div>
+            <div class="floating commentDisplay" id="comment6">{{ comments_list | random }}</div>
+            <div class="floating commentDisplay" id="comment7">{{ comments_list | random }}</div>
+            <div class="floating commentDisplay" id="comment8">{{ comments_list | random }}</div>
+            <div class="floating commentDisplay" id="comment9">{{ comments_list | random }}</div>
+            <div class="floating commentDisplay" id="comment10">{{ comments_list | random }}</div>
         <header>
-            <h1>DJ Fart in the Club</h1>    
+            <h1>DJ Fart in the Club</h1>  
+             
         </header>
         <div class="row">
             <div id="leftcolumn">
@@ -43,7 +55,7 @@
                             <li style="padding-bottom:0.5em" id="comments-button"><a href="{{ url_for('comments') }}" data-target="{{ url_for('comments') }}">- random</a></li> 
                             </ul>
                     </nav></strong>
-                    <div class="commentDisplay">{{ comments_list | random }}</div>
+                    
             </div>
             <div id="middlecolumn">
                     <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/421162128&color=%23a4803c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
@@ -51,6 +63,7 @@
                     <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/554891064&color=%2360a788&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
                     <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/543658269&color=%23491516&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
                     <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/505033533&color=%234454d4&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/467213676&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 
             </div>
 
@@ -62,7 +75,7 @@
                         <div id="upcoming_area"></div>
                         <!--<div id="title" class="tcolumn tlong"></div>-->
                 </div>
-
+                <br>
             {% block comments %}
             {% endblock %}
 
@@ -71,12 +84,8 @@
 
             {% block tour_dates %}
             {% endblock %}
-
+            
           </div>
         </div>
-          
-          
-          
-
     </body>
 </html>
