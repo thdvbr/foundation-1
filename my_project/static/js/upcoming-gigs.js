@@ -1,4 +1,4 @@
-$(document).ready(function() {
+
         //API request for tour dates from Resident Advisor 
         var request = new XMLHttpRequest();
         request.open("GET",'https://www.residentadvisor.net/api/events.asmx/GetEvents?AccessKey=ed0e7f28-e01b-4dfc-b0e1-47b79a49ecec&UserID=360584&DJID=77328&Option=1&VenueID=&CountryID=&AreaID=&PromoterID=&Year=', true);
@@ -50,4 +50,3 @@ $(document).ready(function() {
         }
         
         request.send();
-    });
