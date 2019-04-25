@@ -1,0 +1,91 @@
+        body {
+        background:#FEE4E3;
+        font-family: Arial;
+        padding: 20px;
+        color:#3a5582;
+    }
+        .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+    #leftcolumn{
+        float: left;
+        width: 20%;
+        padding: 10px;
+    }
+
+    #middlecolumn{
+        float:left;
+        width: 45%;
+        padding: 10px;
+    }
+
+    #rightcolumn{
+        float:right;
+        width: 25%;
+        padding: 10px;
+    }
+    #date, #upcoming_date, #area, #upcoming_area{
+        width:20%;
+        font-size: 12px;
+    }
+
+    #date, #upcoming_date{
+        float:left;
+    }
+
+    #area, #upcoming_area{
+        float:right;
+    }
+    #venue, #upcoming_venue{
+        float:left;
+        width:60%;
+        font-size: 12px;
+    }
+
+
+   .tour-dates:after{
+    content: "";
+    display: table;
+    clear: both;
+    }
+/*
+    .tcolumn{
+    float: left;
+    padding: 10px;
+    }
+
+    .tleft, .tright {
+    width: 10%;
+    }
+
+    .tmiddle {
+    width: 20%;
+    }
+    .tlong{
+    width: 30%;
+    }*/
+a{
+    color: #3a5582;
+}
+    a:link, a:visited{
+        text-decoration: none;
+    }
+      
+      a:hover {
+        color: hotpink;
+      }
+      
+
+      iframe{
+          padding: 10px;
+      }
+
+.container{
+    padding-top: 20px;
+}
+
+p{
+    font-size: 14px;
+}

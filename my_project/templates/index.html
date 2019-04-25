@@ -2,67 +2,81 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="style.css" />
+
         <title>DJ Fart in the Club</title>
-        <script src="//connect.soundcloud.com/sdk.js"></script>
-        <script type="text/javascript" src="https://w.soundcloud.com/player/api.js"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/ra_api.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/upcoming-gigs.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/sc.js') }}"></script>
-        
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <!--   <script>
+            $(document).ready(function(){
+    //set trigger and container variable 
+    var trigger = $("#leftcolumn ul li a"),
+        container = $("#rightcolumn")
+    
+        //when clicked 
+    trigger.on("click", function(){
+        var $this =$(this), //set it to a var, will be set to whatever we click
+         target = $this.data("target");     console.log(target);
 
-        <!--<script src="../js/sc.js"></script>-->
-        <style>
-            .tour-dates:after {
-            content: "";
-            display: table;
-            clear: both;
-            }
+    //load target page into container 
+    container.load(target);
+    
+    //stop normal link behaviour 
+    return false;
 
-            .column{
-            float: left;
-            padding: 10px;
-            }
-
-            .left, .right {
-            width: 10%;
-            }
-  
-            .middle {
-            width: 20%;
-            }
-            .long{
-            width: 30%;
-            }
-        </style>
-        
+    
+    });
+});
+        </script> -->
     </head>
     <body>
         <header>
-            <div class="container">
-            <h1>DJ Fart in the Club</h1>
-            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/87169738&color=%23685e44&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-            <strong><nav>
-            <ul class="menu">
-            <li>Mixes</li>
-            <li><a href="{{ url_for('tour_dates') }}">Tour Dates</a></li>
-            <li><a href="{{ url_for('comments') }}">Fun Message Board</a></li>
-            </ul>
-            </nav></strong>
-            </div>
+            <h1>DJ Fart in the Club</h1>    
         </header>
-        <div class="comments">
+        <div class="row">
+            <div id="leftcolumn">
+                    <strong><nav>
+                            <ul style="list-style-type:none">
+                            <li style="padding-bottom:0.5em" id="contact-button"><a href="{{ url_for('contact') }}" data-target="{{ url_for('contact') }}">- about</a></li>
+                            <li style="padding-bottom:0.5em" id="tour-dates-button"><a href="{{ url_for('tour_dates') }}" data-target="{{ url_for('tour_dates') }}">- gigs</a></li>
+                            <li style="padding-bottom:0.5em" id="comments-button"><a href="{{ url_for('comments') }}" data-target="{{ url_for('comments') }}">- random</a></li> 
+                            </ul>
+                    </nav></strong>
+                    <div class="commentDisplay">{{ comments_list | random }}</div>
+            </div>
+            <div id="middlecolumn">
+                    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/421162128&color=%23a4803c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/556357263&color=%23d4ccec&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/554891064&color=%2360a788&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/543658269&color=%23491516&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/505033533&color=%234454d4&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+
+            </div>
+
+        <div id="rightcolumn">
+                <div class="tour-dates">
+                        <h2>upcoming gigs</h2>
+                        <div id="upcoming_date"></div>
+                        <div id="upcoming_venue"></div>
+                        <div id="upcoming_area"></div>
+                        <!--<div id="title" class="tcolumn tlong"></div>-->
+                </div>
+
             {% block comments %}
             {% endblock %}
+
+            {% block contact %}
+            {% endblock %}
+
+            {% block tour_dates %}
+            {% endblock %}
+
           </div>
-          <div class="tour_dates">
-          {% block tour_dates %}
-          {% endblock %}
-         </div> 
-          <input value="Play Sound?" type="button" onclick="player.play()">    
+        </div>
+          
+          
+          
+
     </body>
-    <script>
-        console.log(SC.get('/users/87169738/tracks'));
-    SC.stream('/tracks/556357263');
-          </script>
-    
 </html>

@@ -11,8 +11,8 @@ comments_list = []
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    return render_template("index.html")
-    
+    return render_template("index.html", comments_list=comments_list)
+
 
 @app.route('/comments/', methods=["GET", "POST"])
 def comments():
@@ -27,8 +27,11 @@ def comments():
 
 @app.route('/tour-dates/', methods=["GET", "POST"])
 def tour_dates():
-    return render_template("tour-dates.html")
+    return render_template("tour-dates.html",comments_list=comments_list)
 
+@app.route('/contact/', methods=["GET", "POST"])
+def contact():
+    return render_template("contact.html",comments_list=comments_list)
 
 if __name__ == '__main__':
     app.run(debug=True)

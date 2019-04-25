@@ -1,11 +1,12 @@
 {% extends "index.html" %}
 {% block tour_dates %}
-<div class="tour-dates">
-        <div id="date" class="column left"></div>
-        <div id="title" class="column long"></div>
-        <div id="venue" class="column middle"></div>
-        <div id="area" class="column right"></div>
+<div class="container tour-dates">
+        <h2>all past gigs</h2>
+        <div id="date"></div>
+        <div id="venue"></div>
+        <div id="area"></div>
+        <!--<div id="title" class="tcolumn tlong"></div>-->
 </div>
-
+<script type="text/javascript" src="{{ url_for('static', filename='js/past-gigs.js') }}"></script>
 
 {% endblock %}
